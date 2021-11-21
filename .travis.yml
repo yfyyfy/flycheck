@@ -68,7 +68,7 @@ script:
       docker run --volume "$TRAVIS_BUILD_DIR":/flycheck \
                  --workdir /flycheck \
                  flycheck/emacs-cask:$EMACS_VERSION \
-                 /bin/bash -c "make compile && make unit && make specs"
+                 /bin/bash -c "make compile && make unit"
       # If the unit tests succeed, fetch the all-tools container
       # and run the integration tests
       docker build --build-arg EMACS_VERSION=$EMACS_VERSION \
