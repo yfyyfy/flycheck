@@ -44,7 +44,7 @@ install:
       docker run --volume "$TRAVIS_BUILD_DIR":/flycheck \
                  --workdir /flycheck \
                  flycheck/emacs-cask:$EMACS_VERSION \
-                 /bin/bash -c "make init";;
+                 /bin/bash -c "apt-get -qq update && apt-get install -y --only-upgrade ca-certificates && make init";;
     build-manual)
       # Install requirements of documentation
       pip install -r doc/requirements.txt;;

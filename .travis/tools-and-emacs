@@ -6,6 +6,8 @@ FROM flycheck/emacs-cask:${EMACS_VERSION} AS emacs-cask
 
 FROM flycheck/all-tools
 
+RUN apt-get -qq update && apt-get install -y --only-upgrade ca-certificates
+
 # We need gnutls for downloading packages from ELPA
 RUN apt-get -qq update && \
     apt-get install -qq --no-install-recommends -y \
